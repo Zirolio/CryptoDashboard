@@ -1,0 +1,93 @@
+.container {
+    position: relative;
+    display: flex;
+}
+
+.selectionBtn {
+    cursor: pointer;
+    align-self: center;
+
+    color: var(--btn-text-primary);
+
+    background-color: var(--btn-primary-bg);
+    &:hover { background-color: var(--btn-primary-bg-hover); }
+    &:active { background-color: var(--btn-primary-bg-active); }
+
+    font-size: var(--text-sm);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+}
+
+.selectionContainer {
+    position: absolute;
+    top: 100%;
+
+    z-index: 1;
+    
+    background-color: var(--color-surface-1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+
+    &.right {
+        left: 100%;
+    }
+
+    &.left {
+        right: 100%;
+    }
+}
+
+
+.search {
+    outline: none;
+    border: none;
+    color: white;
+
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.optionsListWallaper {
+    position: relative;
+
+    > .fadeBottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        height: 2.5rem;
+    
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, var(--color-surface-1));
+    }
+}
+
+.optionsList {
+    overflow-y: auto;
+    max-height: 40vh;
+}
+
+.option {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--color-text-primary);
+    padding: var(--spacing-sm);
+
+    font-size: var(--text-sm);
+    
+    img {
+        width: var(--text-sm);
+        height: var(--text-sm);
+        margin-right: var(--spacing-xs);
+    }
+
+    &:hover {
+        background-color: #1e293b;
+    }
+}

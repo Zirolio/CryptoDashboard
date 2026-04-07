@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Dashboard</title>
+  
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* Layout */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #020617;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 10px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  color: white;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header input {
+  padding: 10px;
+  background: #020617;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown button {
+  padding: 10px;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #020617;
+  width: 220px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.dropdown-menu.open {
+  display: block;
+}
+
+.dropdown-menu input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #0f172a;
+  border: none;
+  color: white;
+}
+
+.coin {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.coin:hover {
+  background: #1e293b;
+}
+
+/* Cards */
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  background: #020617;
+  padding: 15px;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Chart */
+.chart-box {
+  background: #020617;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fake-chart {
+  width: 80%;
+  height: 60%;
+  background: linear-gradient(90deg, #22c55e, #6366f1);
+  border-radius: 8px;
+}
+
+/* Table */
+.table {
+  background: #020617;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.row.header {
+  color: #94a3b8;
+}
+
+/* Colors */
+.green {
+  color: var(--color-success);
+}
+
+.red {
+  color: #ef4444;
+}
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>Crypto</h2>
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Market</a>
+      <a>Favorites</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <!-- SEARCH -->
+      <input type="text" placeholder="Search..." />
+
+      <!-- COIN SELECT -->
+      <div class="dropdown">
+        <button id="toggleBtn">Bitcoin ▼</button>
+
+        <div class="dropdown-menu" id="dropdown">
+          <input type="text" placeholder="Search coin..." />
+
+          <div class="coin">Bitcoin - $67,000</div>
+          <div class="coin">Ethereum - $3,200</div>
+          <div class="coin">Solana - $150</div>
+          <div class="coin">BNB - $500</div>
+        </div>
+      </div>
+
+    </header>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="card">
+        <p>BTC Price</p>
+        <h3>$67,000</h3>
+        <span class="green">+2.5%</span>
+      </div>
+
+      <div class="card">
+        <p>ETH Price</p>
+        <h3>$3,200</h3>
+        <span class="red">-1.2%</span>
+      </div>
+
+      <div class="card">
+        <p>Market Cap</p>
+        <h3>$2.1T</h3>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section class="chart">
+      <div class="chart-box">
+        <div class="fake-chart"></div>
+      </div>
+    </section>
+
+    <!-- TABLE -->
+    <section class="table">
+      <div class="row header">
+        <span>Coin</span>
+        <span>Price</span>
+        <span>24h</span>
+      </div>
+
+      <div class="row">
+        <span>BTC</span>
+        <span>$67,000</span>
+        <span class="green">+2.5%</span>
+      </div>
+
+      <div class="row">
+        <span>ETH</span>
+        <span>$3,200</span>
+        <span class="red">-1.2%</span>
+      </div>
+
+      <div class="row">
+        <span>SOL</span>
+        <span>$150</span>
+        <span class="green">+5.1%</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const btn = document.getElementById("toggleBtn");
+  const dropdown = document.getElementById("dropdown");
+
+  btn.onclick = () => {
+    dropdown.classList.toggle("open");
+  };
+
+  document.querySelectorAll(".coin").forEach(el => {
+    el.onclick = () => {
+      btn.innerText = el.innerText.split("-")[0] + " ▼";
+      dropdown.classList.remove("open");
+    };
+  });
+</script>
+
+</body>
+</html>

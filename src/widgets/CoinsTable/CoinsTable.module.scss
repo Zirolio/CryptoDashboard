@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-surface-1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+}
+
+.noContent {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}

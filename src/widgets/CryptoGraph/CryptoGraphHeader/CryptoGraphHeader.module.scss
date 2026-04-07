@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.soinsSelection {
+    > button {
+        padding: var(--spacing-xs);
+        font-size: var(--text-sm);
+        border: none;
+    }
+}
+
+.timeframeSelection {
+    margin-left: var(--spacing-sm);
+}

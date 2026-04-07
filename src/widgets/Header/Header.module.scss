@@ -1,0 +1,62 @@
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    
+    display: flex;
+    justify-content: space-between;
+    
+    color: var(--color-text-primary);
+    padding: var(--spacing-md);
+    font-size: var(--text-xxl);
+    font-weight: 700;
+    
+    border-bottom: 1px solid rgb(92, 92, 92);
+    
+    > .title {
+        align-self: center;
+    }
+}
+
+.settingsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.coinInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+    
+    > .priceChange {
+        align-self: flex-end;
+        font-size: var(--text-md);
+
+        &.negative { color: var(--color-danger); }
+        &.positive { color: var(--color-success); }
+    }
+
+    > .price {
+        align-self: center;
+        font-size: var(--text-xl);
+    }
+}
+
+.settings {
+    display: flex;
+    justify-content: space-between;
+    
+    .soinsSelection {
+        > button {
+            padding: var(--spacing-xs);
+            font-size: var(--text-xs);
+            border: none;
+        }
+    }
+    
+    .timeframeSelection {
+        align-items: center;
+        
+        font-size: var(--text-xs);
+        margin-right: var(--spacing-xs);
+    }
+}

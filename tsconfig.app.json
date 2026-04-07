@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2023",
+    "useDefineForClassFields": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@widgets/*": ["./src/widgets/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@game/*": ["./src/game/*"],
+      "@editor/*": ["./src/editor/*"],
+      "@store/*": ["./src/store/*"],
+      "@engine/*": ["./src/engine/*"],
+      "@assets/*": ["src/shared/assets/*"],
+      "@shared/*": ["src/shared/*"],
+      "@/*": ["./src/*"]
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}

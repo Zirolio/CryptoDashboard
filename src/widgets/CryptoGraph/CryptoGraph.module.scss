@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    font-size: var(--text-sm);
+    background-color: var(--color-surface-1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+    min-height: 25rem;
+}
+
+.graph {
+    position: relative;
+
+    *, *:hover, *:focus-visible {
+        outline: none;
+    }
+}

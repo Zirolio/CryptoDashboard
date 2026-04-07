@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    font-size: var(--text-sm);
+}
+
+.timeframe {
+    cursor: pointer;
+    color: var(--color-text-primary);
+    transition: color 300ms ease;
+
+    &:hover {
+        color: var(--color-text-hover);
+    }
+
+    margin-right: var(--spacing-sm);
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    &.sellected {
+        color: var(--color-text-accent);
+    }
+}

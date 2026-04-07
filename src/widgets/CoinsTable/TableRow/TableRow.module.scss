@@ -1,0 +1,50 @@
+.tableRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+    
+    > * {
+        &:first-child { justify-self: start; }
+        &:nth-child(2) { justify-self: center; }
+        &:last-child { justify-self: end; }
+    }
+    
+    // font-size: var(--text-sm);
+    font-size: var(--text-md);
+    padding: var(--spacing-sm);
+    color: var(--color-text-primary);
+    
+    &.caption {
+        color: var(--color-text-secondary);
+        margin: var(--spacing-sm) 0;
+    }
+    
+    &:not(.caption) {
+        --translate-x: 0px;
+        --translate-y: 0px;
+
+        transform: translate(var(--translate-x), var(--translate-y));
+        transition: transform 0.2s ease, background 0.2s ease;
+        animation: fadeIn 0.3s ease forwards;
+
+        &:hover {
+            background: var(--color-surface-2);
+            --translate-x: 2px;
+        }
+        
+        > .priceChange {
+            &.negative { color: var(--color-danger); }
+            &.positive { color: var(--color-success); }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        --translate-y: 6px;
+    }
+    to {
+        opacity: 1;
+        --translate-y: 0px;
+    }
+}

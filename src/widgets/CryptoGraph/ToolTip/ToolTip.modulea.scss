@@ -1,0 +1,27 @@
+.tooltip {
+    background: var(--color-surface-1)/* rgba(2, 6, 23, 0.9) */;
+    backdrop-filter: blur(10px);
+
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+
+    box-shadow: var(--shadow-widget);
+    border: var(--border-subtle);
+
+    pointer-events: none;
+}
+
+.tooltip-date {
+    color: var(--color-muted);
+    font-size: var(--text-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tooltip-price {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--color-accent);
+}
