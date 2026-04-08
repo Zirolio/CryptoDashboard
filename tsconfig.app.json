@@ -17,8 +17,7 @@
       "@editor/*": ["./src/editor/*"],
       "@store/*": ["./src/store/*"],
       "@engine/*": ["./src/engine/*"],
-      "@assets/*": ["src/shared/assets/*"],
-      "@shared/*": ["src/shared/*"],
+      "@shared/*": ["./src/shared/*"],
       "@/*": ["./src/*"]
     },
 
