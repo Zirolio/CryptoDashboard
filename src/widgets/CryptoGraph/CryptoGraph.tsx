@@ -8,7 +8,7 @@ import getNiceTicks from "@/shared/util/getNiceTicks";
 import { normalizeChartData } from "@/shared/util/normalizeChartData";
 
 export default function CryptoGraph() {
-    const { coin, timeframe } = useAppSelector(state => state.dashboard.cryptoGraph);
+    const { coin, timeframe } = useAppSelector(state => state.dashboard);
     const { data: chart } = useCoinChart(coin, Number(timeframe));
 
     const normalizedChart = normalizeChartData(chart ?? [], Number(timeframe));

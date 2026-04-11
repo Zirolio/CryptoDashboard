@@ -1,16 +1,16 @@
 import CoinsSelection from "@/shared/ui/CoinsSelection/CoinsSelection";
 import TimeframeSelection from "@/shared/ui/TimeframeSelection/TimeframeSelection";
 import { TIMEFRAMES } from "@/shared/configs/timeframes";
-import { setCryptoGraphCoin, setCryptoGraphTimeframe } from "@store/slices/dashboard";
 import { useAppDispatch, useAppSelector } from "@store/store";
 import styles from "./Header.module.scss";
 import { useCoin } from "@entities/coins/model/useCoin";
 import Skeleton from "react-loading-skeleton";
 import cx from "classix";
 import getPriceChange from "@/shared/util/getPriceChange";
+import { setDashboardCoin, setDashboardTimeframe } from "@store/slices/dashboard";
 
 export default function Header() {
-    const { coin, timeframe } = useAppSelector(state => state.dashboard.cryptoGraph);
+    const { coin, timeframe } = useAppSelector(state => state.dashboard);
     const dispatch = useAppDispatch();
 
     const { data, isLoading } = useCoin(coin);
@@ -42,12 +42,12 @@ export default function Header() {
                     className={styles.timeframeSelection}
                     sellected={timeframe}
                     timeframes={TIMEFRAMES}
-                    onTimeframeChange={(id) => dispatch(setCryptoGraphTimeframe(id))}
+                    onTimeframeChange={(id) => dispatch(setDashboardTimeframe(id))}
                     />
                 <CoinsSelection
                     className={styles.soinsSelection}
                     defaultValue={coin}
-                    onCoinChange={(coin) => dispatch(setCryptoGraphCoin(coin))}
+                    onCoinChange={(coin) => dispatch(setDashboardCoin(coin))}
                     />
             </div>
         </div>

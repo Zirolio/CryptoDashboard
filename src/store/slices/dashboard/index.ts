@@ -1,9 +1,4 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import cryptoGraphReducer from "./cryptoGraphSlice";
+import dashboardReducer from "./dashboardSlice";
 
-const dashboardReducer = combineReducers({
-    cryptoGraph: cryptoGraphReducer
-});
-
-export * from "./cryptoGraphSlice";
+export * from "./dashboardSlice";
 export default dashboardReducer;

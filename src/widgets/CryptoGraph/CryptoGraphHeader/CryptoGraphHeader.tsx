@@ -3,10 +3,10 @@ import styles from "./CryptoGraphHeader.module.scss";
 import TimeframeSelection from "@/shared/ui/TimeframeSelection/TimeframeSelection";
 import { TIMEFRAMES } from "@/shared/configs/timeframes";
 import { useAppDispatch, useAppSelector } from "@store/store";
-import { setCryptoGraphCoin, setCryptoGraphTimeframe } from "@store/slices/dashboard";
+import { setDashboardCoin, setDashboardTimeframe } from "@store/slices/dashboard";
 
 export default function CryptoGraphHeader() {
-    const { coin, timeframe } = useAppSelector(state => state.dashboard.cryptoGraph);
+    const { coin, timeframe } = useAppSelector(state => state.dashboard);
     const dispatch = useAppDispatch();
 
     return <div className={styles.container}>
@@ -14,12 +14,12 @@ export default function CryptoGraphHeader() {
             className={styles.timeframeSelection}
             sellected={timeframe}
             timeframes={TIMEFRAMES}
-            onTimeframeChange={(id) => dispatch(setCryptoGraphTimeframe(id))}
+            onTimeframeChange={(id) => dispatch(setDashboardTimeframe(id))}
             />
         <CoinsSelection
             className={styles.soinsSelection}
             defaultValue={coin}
-            onCoinChange={(coin) => dispatch(setCryptoGraphCoin(coin))}
+            onCoinChange={(coin) => dispatch(setDashboardCoin(coin))}
             />
     </div>
 } 
